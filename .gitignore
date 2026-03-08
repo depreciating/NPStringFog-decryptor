@@ -1,0 +1,8 @@
+# Ignore test files and assets
+*.dex
+.npapp
+np/
+
+# Ignore script caches and temp folders
+__pycache__/
+temp_smali_dir/
