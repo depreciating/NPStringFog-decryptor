@@ -2,6 +2,10 @@
 
 A fully automated tool to deobfuscate Android DEX files protected by various versions of the NPStringFog obfuscator. 
 
+## Contact Me
+If you run into any issues, have questions, or want to discuss reverse engineering, feel free to reach out:
+* **Telegram:** [@depreciatin](https://t.me/depreciatin)
+
 ## Supported Versions
 * **NPStringFog** (Standard XOR)
 * **NPStringFog3** (StringPool Array Variant)
@@ -12,8 +16,8 @@ A fully automated tool to deobfuscate Android DEX files protected by various ver
 You can run this decryptor entirely in the cloud for free using GitHub Actions.
 
 1. Click **Add file -> Upload files** and upload your obfuscated `classes.dex` to the main folder of this repository.
-   * *For Fog4:* Upload the `.npapp` file if it exists.
-   * *For Fog5:* Upload the `np/` directory containing the encrypted asset files.
+   * *For NPStringFog4:* Upload the `.npapp` file if it exists.
+   * *For NPStringFog5:* Upload the `np/` directory containing the encrypted asset files.
 2. Commit the changes.
 3. Go to the **Actions** tab at the top of the repository.
 4. Click **NP-Deobfuscator-Cloud** on the left sidebar.
@@ -22,6 +26,6 @@ You can run this decryptor entirely in the cloud for free using GitHub Actions.
 
 ## How to Use (Local)
 Ensure you have `python3` and `java` installed. Place `baksmali.jar` and `smali.jar` in the same directory as the script.
-
 ```bash
 python decrypt.py classes.dex
+
