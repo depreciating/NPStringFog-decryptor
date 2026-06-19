@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.npstringfog'
+version '2.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Core Smali/Dexlib2 dependencies for bytecode manipulation
+    implementation 'org.smali:dexlib2:2.5.2'
+    
+    // Annotations used by dexlib2
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+}
+
+application {
+    mainClass = 'com.npstringfog.Main'
+}
+
+// Configures the 'jar' task to bundle all dependencies into a single fat JAR
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'com.npstringfog.Main'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
